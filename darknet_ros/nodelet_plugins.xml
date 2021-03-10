@@ -1,8 +1,8 @@
 <library path="lib/libdarknet_ros_nodelet">
 
   <!-- Darknet Ros Plugin -->
-  <class name="darknet_ros_nodelet" type="DarknetRosNodelet" base_class_type="nodelet::Nodelet">
-    <description>Darknet Ros Nodelet.</description>
+  <class name="darknet_ros/object_detector_nodelet" type="darknet_ros::ObjectDetectorNodelet" base_class_type="nodelet::Nodelet">
+    <description>YOLO Object Detector Nodelet.</description>
   </class>
 
 </library>
