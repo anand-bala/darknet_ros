@@ -101,3 +101,17 @@ if(NOT EXISTS "${FILE}")
       -P ${PATH}
   )
 endif()
+
+
+# Download yolov4.weights
+set(FILE "${PATH}/yolov4.weights")
+message(STATUS "Checking and downloading yolov3.weights if needed ...")
+if(NOT EXISTS "${FILE}")
+  message(STATUS "... file does not exist. Downloading now ...")
+  execute_process(
+    COMMAND
+      wget -q
+      https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights
+      -P ${PATH}
+  )
+endif()
