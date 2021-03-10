@@ -26,8 +26,7 @@ set(catkin_dependencies
     nodelet
 )
 find_package(catkin REQUIRED COMPONENTS ${catkin_dependencies})
-# Add Darknet source dir
-add_subdirectory(darknet)
+add_subdirectory(libs)
 
 catkin_package(
   INCLUDE_DIRS include
@@ -40,7 +39,7 @@ add_library(${PROJECT_NAME} src/darknet_ros.cc)
 target_include_directories(
   ${PROJECT_NAME} PUBLIC include ${catkin_INCLUDE_DIRS}
 )
-target_link_libraries(${PROJECT_NAME} PUBLIC dark ${catkin_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PUBLIC DarkHelp ${catkin_LIBRARIES})
 target_compile_features(
   ${PROJECT_NAME}
   PUBLIC cxx_std_11

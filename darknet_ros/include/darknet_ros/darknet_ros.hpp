@@ -13,7 +13,7 @@
 #include <ros/ros.h>
 
 // Yolo stuff
-#include <yolo_v2_class.hpp>
+#include <DarkHelp.hpp>
 
 // Darknet messages
 #include <darknet_ros_msgs/BoundingBox.h>
@@ -44,21 +44,11 @@ class DarknetNode {
   /// Bounding boxes publisher
   ros::Publisher m_bbox_pub;
 
-  /// YOLO Darknet detection threshold
-  float m_threshold = DEFAULT_DETECTION_THRESHOLD;
   /// YOLO Darknet detector
-  std::unique_ptr<Detector> m_detector;
-  /// The labels/classes of objects.
-  std::vector<std::string> m_class_labels;
+  std::unique_ptr<DarkHelp> m_detector;
 
   /// Callback for image stream subscriber
   void handle_image(const sensor_msgs::ImageConstPtr& msg);
-
-  /// Helper to draw detected bounding boxes on the output image
-  void draw_boxes(cv_bridge::CvImagePtr&, const std::vector<bbox_t>&);
-
-  /// Helper to draw detected bounding boxes on the output image
-  std::vector<darknet_ros_msgs::BoundingBox> get_boxes(const std::vector<bbox_t>&);
 
  public:
   DarknetNode(const ros::NodeHandle& nh);
